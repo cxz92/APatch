@@ -4,16 +4,16 @@ use std::io::{self, BufRead};
 use std::path::Path;
 
 #[derive(Deserialize, Serialize)] // Add Serialize trait
-struct PackageConfig {
-    pkg: String,
-    exclude: i32,
-    allow: i32,
-    uid: i32,
-    to_uid: i32,
-    sctx: String,
+pub struct PackageConfig {
+    pub pkg: String,
+    pub exclude: i32,
+    pub allow: i32,
+    pub uid: i32,
+    pub to_uid: i32,
+    pub sctx: String,
 }
 
-fn read_ap_package_config() -> Vec<PackageConfig> {
+pub fn read_ap_package_config() -> Vec<PackageConfig> {
     let file = match File::open("/data/adb/ap/package_config") {
         Ok(file) => file,
         Err(e) => {
